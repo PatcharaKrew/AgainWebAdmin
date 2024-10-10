@@ -1,0 +1,70 @@
+.view-button {
+  background-color: #4489ea;
+  color: white;
+  margin-right: 2rem;
+}
+
+.view-button:hover {
+  background-color: #75afff;
+  color: white;
+}
+
+.header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+
+}
+
+.nz-input-group {
+  max-width: 200px;
+}
+
+.delete-button {
+  background-color: #ea4446;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #ff7875;
+  color: white;
+}
+.title1 {
+  font-size: 20px; /* ขนาดตัวอักษรใหญ่ */
+  font-weight: bolder; /* ตัวอักษรหนา */
+  color: #1b2a49; /* เปลี่ยนสีตัวอักษรให้เข้ากับธีม */
+  text-transform: uppercase; /* ทำให้เป็นตัวพิมพ์ใหญ่ทั้งหมด */
+  margin-bottom: 10px; /* เพิ่มระยะห่างด้านล่าง */
+}
+.ant-btn-primary {
+  background-color: #ff4d4f; /* สีแดง */
+  border-color: #ff4d4f;
+}
+
+.ant-btn-primary:hover {
+  background-color: #ff7875; /* สีเมื่อ hover */
+  border-color: #ff7875;
+}
+::ng-deep .ant-modal-title {
+  font-size: 18px; // ขนาดตัวอักษรใหญ่
+  font-weight: bold; // ตัวอักษรหนา
+  text-transform: uppercase;
+  color: #1b2a49;
+}
+
+::ng-deep .ant-table-thead > tr > th {
+  background-color: #1b2a49 !important;
+  color: white !important;
+  font-weight: bold;
+  border-right: none !important; /* ลบเส้นขอบด้านขวาของหัวตาราง */
+  border-left: none !important;  /* ลบเส้นขอบด้านซ้ายของหัวตาราง */
+}
+
+::ng-deep .ant-table-thead > tr > th:first-child {
+  border-left: none !important; /* ลบเส้นขอบด้านซ้ายสุดของหัวตาราง */
+}
+
+::ng-deep .ant-table-thead > tr > th:last-child {
+  border-right: none !important; /* ลบเส้นขอบด้านขวาสุดของหัวตาราง */
+}

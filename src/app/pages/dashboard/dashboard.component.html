@@ -1,0 +1,82 @@
+<div class="dashboard-grid">
+  <!-- Removed the Dashboard Overview -->
+
+  <!-- Stats Cards (4 columns for 4 stats) -->
+  <div class="grid-item stats-card">
+    <mat-card class="custom-card">
+      <mat-icon> local_hospital</mat-icon>
+      <mat-card-title>ตรวจสุขภาพ</mat-card-title>
+      <mat-card-content>{{ healthCheckCount }}</mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="grid-item stats-card">
+    <mat-card class="custom-card">
+      <mat-icon>add_circle</mat-icon>
+      <mat-card-title>HIV</mat-card-title>
+      <mat-card-content>{{ hivCheckCount }}</mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="grid-item stats-card">
+    <mat-card class="custom-card">
+      <mat-icon>smoke_free</mat-icon>
+      <mat-card-title>เลิกบุหรี่</mat-card-title>
+      <mat-card-content>{{ quitSmokingCount }}</mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="grid-item stats-card">
+    <mat-card class="custom-card">
+      <mat-icon>verified_user</mat-icon>
+      <mat-card-title>จำนวนผู้เข้าตรวจทั้งหมด</mat-card-title>
+      <mat-card-content>{{ totalCheckCount }}</mat-card-content>
+    </mat-card>
+  </div>
+
+  <!-- Bar Chart (Large Box - 2 columns wide) -->
+  <div class="grid-item large-box">
+    <ngx-charts-bar-vertical-2d
+      [results]="riskLevelData"
+      [xAxis]="true"
+      [yAxis]="true"
+      [legend]="true"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      xAxisLabel="Month"
+      yAxisLabel="จำนวนผู้เข้ามาตรวจ(คน)"
+    ></ngx-charts-bar-vertical-2d>
+  </div>
+
+  <!-- Pie Chart (Medium Box) -->
+  <div class="grid-item medium-box-1">
+    <ngx-charts-pie-chart
+      [results]="appointmentPieChartData"
+      [legend]="true"
+      [explodeSlices]="true"
+      [labels]="true"
+      [doughnut]="true"
+    ></ngx-charts-pie-chart>
+  </div>
+
+  <!-- Full Width Box for Additional Content -->
+  <div class="grid-item full-width-box">
+    <div class="health-check-wrapper">
+      <div class="input-container">
+        <label>ตรวจสุขภาพ:</label>
+        <nz-input-number [(ngModel)]="healthCheckValue" [nzStep]="1" [nzMin]="0" [nzMax]="100" style="width: 200px;" [disabled]="!isEditingHealth"></nz-input-number>
+        <button nz-button nzType="primary" (click)="toggleEdit('health')">{{ isEditingHealth ? 'บันทึก' : 'แก้ไข' }}</button>
+      </div>
+      <div class="input-container">
+        <label>HIV:</label>
+        <nz-input-number [(ngModel)]="hivCheckValue" [nzStep]="1" [nzMin]="0" [nzMax]="100" style="width: 200px;" [disabled]="!isEditingHiv"></nz-input-number>
+        <button nz-button nzType="primary" (click)="toggleEdit('hiv')">{{ isEditingHiv ? 'บันทึก' : 'แก้ไข' }}</button>
+      </div>
+      <div class="input-container">
+        <label>เลิกบุหรี่:</label>
+        <nz-input-number [(ngModel)]="quitSmokingCheckValue" [nzStep]="1" [nzMin]="0" [nzMax]="100" style="width: 200px;" [disabled]="!isEditingQuitSmoking"></nz-input-number>
+        <button nz-button nzType="primary" (click)="toggleEdit('quitSmoking')">{{ isEditingQuitSmoking ? 'บันทึก' : 'แก้ไข' }}</button>
+      </div>
+    </div>
+  </div>
+</div>
